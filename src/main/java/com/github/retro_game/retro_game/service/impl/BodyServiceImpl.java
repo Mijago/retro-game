@@ -732,8 +732,7 @@ class BodyServiceImpl implements BodyServiceInternal {
         double metalCapacity = capacity.getMetal() - resources.getMetal();
         double fullProductionFor = Math.min(seconds, Math.max(0.0, metalCapacity *
             3600.0 / production.getMetalProduction()));
-        metalProduced = (production.getMetalProduction() * fullProductionFor +
-            production.getMetalBaseProduction() * (seconds - fullProductionFor)) / 3600.0;
+        metalProduced = (production.getMetalProduction() * fullProductionFor) / 3600.0;
       }
 
       // Crystal.
@@ -742,8 +741,7 @@ class BodyServiceImpl implements BodyServiceInternal {
         double crystalCapacity = capacity.getCrystal() - resources.getCrystal();
         double fullProductionFor = Math.min(seconds, Math.max(0.0, crystalCapacity *
             3600.0 / production.getCrystalProduction()));
-        crystalProduced = (production.getCrystalProduction() * fullProductionFor +
-            production.getCrystalBaseProduction() * (seconds - fullProductionFor)) / 3600.0;
+        crystalProduced = (production.getCrystalProduction() * fullProductionFor) / 3600.0;
       }
 
       // Deuterium.
@@ -752,8 +750,7 @@ class BodyServiceImpl implements BodyServiceInternal {
         double deuteriumCapacity = capacity.getDeuterium() - resources.getDeuterium();
         double fullProductionFor = Math.min(seconds, Math.max(0.0, deuteriumCapacity *
             3600.0 / production.getDeuteriumProduction()));
-        deuteriumProduced = (production.getDeuteriumProduction() * fullProductionFor +
-            production.getDeuteriumBaseProduction() * (seconds - fullProductionFor)) / 3600.0;
+        deuteriumProduced = (production.getDeuteriumProduction() * fullProductionFor) / 3600.0;
       } else if (production.getDeuteriumProduction() < 0) {
         deuteriumProduced = production.getDeuteriumProduction() * seconds / 3600.0;
       }
